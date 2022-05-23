@@ -29,33 +29,49 @@
     <title>Error</title>
   </head>
   <style>
+    body {
+      font-family: "Muli", sans-serif, -apple-system, BlinkMacSystemFont,
+        "Helvetica Neue", Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #a85959;
+      background-image: url("../static/images/cover.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 20px;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     h1 {
-      color: #b04b4b;
+      color: #0b0000;
       font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
       font-weight: 900;
       font-size: 40px;
       margin: auto;
     }
     .icon {
-      background-image: url("/static/delete-sign.png");
-      background-repeat: no-repeat;
-      background-size: 250px;
-      height: 250px;
-      width: 250px;
-      margin: 20px;
+      height: 10%;
+      width: 10%;
+      margin-bottom: 4%;
     }
     .card {
-      background: white;
+      background: #4d303000;
       padding: 60px;
       display: flex;
       flex-direction: column;
       margin: auto;
       align-items: center;
+      justify-content: center;
+      border: none;
     }
   </style>
   <body>
     <div class="card">
-      <div class="icon"></div>
+      <img src="../static/images/delete-sign.png" alt="error" class="icon" />
       <h1>{{ msg }}</h1>
     </div>
   </body>
