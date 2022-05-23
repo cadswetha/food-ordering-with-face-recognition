@@ -18,6 +18,10 @@
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
@@ -27,17 +31,27 @@
     <title>Registration</title>
   </head>
   <body>
-    <h1>Register Yourself</h1>
-    <form method="POST" accept-charset="utf-8" autocomplete="off">
-      <div id="container">
-        <video width="1280" height="720" id="video" autoplay></video>
+    <div class="form-container">
+      <div class="form-body">
+        <h2 class="title">Register Yourself</h2>
+        <form method="POST" accept-charset="utf-8" autocomplete="off">
+          <div id="container">
+            <video width="1280" height="720" id="video" autoplay></video>
+          </div>
+          {{ form.hidden_tag() }} {{ form.email.label }} {{ form.email() }}
+          <br />
+          {{ form.url.label }} {{ form.url() }} {{ form.submit() }}
+        </form>
       </div>
-      {{ form.hidden_tag() }} {{ form.email.label }} {{ form.email() }} {% for
-      error in form.email.errors %}{{ error }}{% endfor %}<br />
-      {{ form.url.label }} {{ form.url() }} {% for error in form.url.errors %}{{
-      error }}{% endfor %}<br />
-      {{ form.submit() }}
-    </form>
+
+      <div class="form-footer">
+        <div>
+          <span>Already have an account?</span>
+          <a href="/">Log In</a>
+        </div>
+      </div>
+      <!-- FORM FOOTER -->
+    </div>
     <canvas id="myCanvas" width="320" height="240" hidden></canvas>
     <script type="text/javascript" , src="/static/js/index.js"></script>
   </body>

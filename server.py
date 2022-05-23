@@ -22,7 +22,13 @@ app.register_blueprint(main)
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
     url = StringField('DataURL', validators=[])
-    submit = SubmitField('LOGIN')
+    submit = SubmitField('Log In')
+
+
+class RegisterForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired()])
+    url = StringField('DataURL', validators=[])
+    submit = SubmitField('Register')
 
 
 email = None
@@ -46,7 +52,7 @@ def index():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     global email, url
-    form = LoginForm()
+    form = RegisterForm()
     if form.validate_on_submit():
         email = form.email.data
         url = form.url.data
