@@ -1,0 +1,41 @@
+body{
+    background-color: rgb(35, 34, 34);
+    color: aliceblue;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.title-block{
+    margin: 2rem;
+    background:linear-gradient(to right,rgb(16, 84, 16),rgb(27, 150, 27));
+    display: inline-block;
+    width: 50%;
+    border-radius: 4rem;
+    padding-left: 12px;
+}
+.card{
+    border-radius: 15px 15px 5px 5px;
+    background-color: rgb(16, 16, 16);
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+.card > img{
+    border-radius: 15px 15px 0 0;
+}
+.card:hover{
+    box-shadow: 3px;
+    transform: scale(1.05);
+}
+.side-bar{
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+.row{
+    position: relative;
+}
+.content{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
