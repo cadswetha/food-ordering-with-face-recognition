@@ -19,7 +19,6 @@ def login_check(email, image):
         # local system path for storing the images
         # ******change it afterwards*****
         savepath = "C:/Users/sweth/OneDrive/Desktop/facerecog/MS_Project_Copy/Microsoft-Engage-Project/photos/"
-
         # photo1
         full_path1 = os.path.join(savepath, file_new+".jpg")
 
