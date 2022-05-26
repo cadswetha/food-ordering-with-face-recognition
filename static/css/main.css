@@ -27,13 +27,23 @@ body{
     box-shadow: 3px;
     transform: scale(1.05);
 }
+.row {
+    position: relative;
+}
 .side-bar{
+    background-color: black;
+    width: auto;
+    height: 100vh;
     position: fixed;
     top: 0;
     right: 0;
 }
-.row{
-    position: relative;
+.title-block-side-bar{
+    width: max-content;
+    background: linear-gradient(to right, rgb(16, 84, 16), rgb(27, 150, 27));
+    border-radius: 2rem;
+    padding: 0.2rem 0.7rem;
+    margin: 2rem;
 }
 .content{
     margin-left: 1rem;

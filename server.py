@@ -93,7 +93,7 @@ def register_submit():
     status = rs(email, url)
     if status == "Registration Successful!":
         app.logger.info("Registration Success")
-        return render_template('success.html', msg=status)
+        return render_template('selection.html')
     else:
         app.logger.info("Registration fail")
         return render_template('fail.html', msg=status)
