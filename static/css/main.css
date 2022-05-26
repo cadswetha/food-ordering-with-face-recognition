@@ -49,3 +49,19 @@ body{
     margin-left: 1rem;
     margin-bottom: 1rem;
 }
+
+@media screen and (max-width:1000px) {
+    .side-bar {
+        width: max-content;
+        height: max-content;
+        position: relative;
+        margin-bottom: 5rem;
+    }
+    .title-block-side-bar {
+        margin: 2rem auto;
+    }
+    .title-block {
+        margin: 1rem;
+        width: 70%;
+    }
+}
