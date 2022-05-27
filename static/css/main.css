@@ -34,6 +34,9 @@ body{
     background-color: black;
     width: auto;
     height: 100vh;
+    max-height: 150vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     position: fixed;
     top: 0;
     right: 0;
@@ -49,7 +52,14 @@ body{
     margin-left: 1rem;
     margin-bottom: 1rem;
 }
-
+.butn{
+    background: linear-gradient(to right, rgb(16, 84, 16), rgb(221, 235, 28));
+    color: black;
+    border-radius: 2rem;
+    padding: 0.3rem 0.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
 @media screen and (max-width:1000px) {
     .side-bar {
         width: max-content;

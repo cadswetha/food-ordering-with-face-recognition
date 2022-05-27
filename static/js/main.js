@@ -1,5 +1,6 @@
 const food = []
 const items = document.getElementById('items')
+const butn = document.getElementById('butn')
 const lenfood = 27
 for (let i=0;i<lenfood;i++){
     let k = "food"+ (i+1).toString();
@@ -21,4 +22,15 @@ for (let i=0;i<lenfood;i++){
         }
     })
 }
+
+// butn.addEventListener('click',() => {
+//     let children = items.children;
+//     let foodlist = ""
+//     for (let i=0;i<children.length;i++){
+//         let child = children[i];
+//         foodlist+= child.innerHTML+"\n";
+//     }
+//     console.log(foodlist);
+//     items.innerHTML="orders saved!"
+// })
 
