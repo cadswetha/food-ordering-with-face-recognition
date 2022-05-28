@@ -5,12 +5,23 @@ from wtforms.validators import DataRequired
 import os
 from login import login_check as lc
 from register import register_on_submit as rs
+from flask_mysqldb import MySQL
+
 
 main = Blueprint('main', __name__)
 
 secret_key = str(os.urandom(24))
 
 app = Flask(__name__)
+
+app.config['MYSQL_USER'] = 'sql6495906'
+app.config['MYSQL_PASSWORD'] = 'ecT2HVKR8x'
+app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
+app.config['MYSQL_DB'] = 'sql6495906'
+# app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+mysql = MySQL(app)
+
 app.config['TESTING'] = False
 app.config['DEBUG'] = True
 app.config['FLASK_ENV'] = 'deployment'
@@ -33,6 +44,22 @@ class RegisterForm(FlaskForm):
 
 email = None
 url = None
+
+
+def sendPostReq(email, content):
+    cur = mysql.connection.cursor()
+    query = f'SELECT * FROM Preferences WHERE mailid = "{email}"'
+    cur.execute(query)
+    rows = cur.fetchall()
+    if len(rows) == 0:
+        query = "INSERT INTO Preferences (mailid , fooditems) VALUES (%s,%s)"
+        val = (email, content)
+        cur.execute(query, val)
+    else:
+        query = f'UPDATE Preferences set fooditems = "{content}" WHERE mailid = "{email}"'
+        cur.execute(query)
+
+    mysql.connection.commit()
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -63,7 +90,7 @@ def register():
     return render_template('register.html', form=form)
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     global email, url
     if email == '' or url == '':
@@ -77,23 +104,35 @@ def login():
         return render_template('fail.html', msg=status)
     if status == "Successfully Logged in!":
         app.logger.info("Login Success")
+
         return render_template('selection.html', msg=status)
     else:
         app.logger.info("Login Fail")
         return render_template('fail.html', msg=status)
 
 
-@app.route('/register_submit')
+@app.route('/register_submit', methods=['GET', 'POST'])
 def register_submit():
+    if request.method == 'POST':
+        content = request.form.getlist('food')
+        return str(content)
     global email, url
     if email == '' or url == '':
         return redirect(url_for('.register'))
     if email == None or url == None:
         return redirect(url_for('.register_submit'))
     status = rs(email, url)
+
     if status == "Registration Successful!":
         app.logger.info("Registration Success")
+
+        if request.method == 'POST':
+            content = str(request.form.getlist('food'))
+            sendPostReq(email, content)
+            return render_template('success.html', msg="Order has been placed and saved")
+
         return render_template('selection.html', mailid=email)
+
     else:
         app.logger.info("Registration fail")
         return render_template('fail.html', msg=status)
