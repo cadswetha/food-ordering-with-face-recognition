@@ -75,3 +75,39 @@ body{
         width: 70%;
     }
 }
+.item-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(12, 12, 12);
+    margin: 10vh auto;
+    width: 500px;
+    border: 0.4rem solid rgb(16, 84, 16);
+}
+.decorator{
+    padding: 1rem;
+    margin: 1rem auto;
+}
+.changebtn{
+    background: linear-gradient(to right, rgb(16, 84, 16), rgb(221, 235, 28));
+    color: black;
+    border-radius: 2rem;
+    padding: 0.3rem 0.5rem;
+    font-weight: bold;
+    margin: 0.3rem auto;
+    margin-bottom: 0.5rem;
+    width: 170px;
+}
+.each-item{
+    padding-top: 0.3rem;
+    font-size: larger;
+}
+.title{
+    margin: 3rem auto;
+    margin-bottom: 1rem;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: black;
+}
