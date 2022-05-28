@@ -77,7 +77,7 @@ def login():
         return render_template('fail.html', msg=status)
     if status == "Successfully Logged in!":
         app.logger.info("Login Success")
-        return render_template('success.html', msg=status)
+        return render_template('selection.html', msg=status)
     else:
         app.logger.info("Login Fail")
         return render_template('fail.html', msg=status)
