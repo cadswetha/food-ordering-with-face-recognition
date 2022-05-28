@@ -23,14 +23,35 @@ for (let i=0;i<lenfood;i++){
     })
 }
 
-// butn.addEventListener('click',() => {
-//     let children = items.children;
-//     let foodlist = ""
-//     for (let i=0;i<children.length;i++){
-//         let child = children[i];
-//         foodlist+= child.innerHTML+"\n";
-//     }
-//     console.log(foodlist);
-//     items.innerHTML="orders saved!"
-// })
+butn.addEventListener('click',() => {
+    // getting user mailid using jinja template in html file
+    let mailid = document.getElementById('my-data').innerHTML;
+
+    //getting all the child elements of <ul></ul>
+    let children = items.children;
+
+    //a string that stores all the selected food items
+    let foodlist = ""
+    for (let i=0;i<children.length;i++){
+        let child = children[i];
+        foodlist+= child.innerHTML+"\n";
+    }
+
+    // console.log(mailid);
+
+    items.innerHTML="orders saved!"
+    // unchecking all the selected items after saving
+    for(let i=0; i<lenfood ;i++){
+        food[i].checked = false;
+    }
+
+    // //once the save button is clicked , generating a query 
+    // var data = new URLSearchParams();
+    // data.append("email", mailid);
+    // data.append("content", foodlist);
+
+    // // ****change the url afterwards
+    // var url = " http://127.0.0.1:5500/register_submit" + data.toString();
+    // location.href = url;
+})
 
