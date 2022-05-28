@@ -6,7 +6,7 @@ import os
 from login import login_check as lc
 from register import register_on_submit as rs
 from flask_mysqldb import MySQL
-
+import ast
 
 main = Blueprint('main', __name__)
 
@@ -46,7 +46,7 @@ email = None
 url = None
 
 
-def sendPostReq(email, content):
+def sendPostRequest(email, content):
     cur = mysql.connection.cursor()
     query = f'SELECT * FROM Preferences WHERE mailid = "{email}"'
     cur.execute(query)
@@ -60,6 +60,14 @@ def sendPostReq(email, content):
         cur.execute(query)
 
     mysql.connection.commit()
+
+
+def sendGetRequest(email):
+    cur = mysql.connection.cursor()
+    query = f'SELECT fooditems FROM Preferences WHERE mailid = "{email}"'
+    cur.execute(query)
+    row = cur.fetchone()
+    return row[0]
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -80,32 +88,43 @@ def index():
 def register():
     global email, url
     form = RegisterForm()
+
     if form.validate_on_submit():
         email = form.email.data
         url = form.url.data
         return redirect(url_for('.register_submit'))
+
     elif request.method == 'POST':
         form.email.data = email
         form.url.data = url
+
     return render_template('register.html', form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     global email, url
+
     if email == '' or url == '':
         return redirect(url_for('.index'))
+
     if email == None or url == None:
         return redirect(url_for('.login'))
+
     status = lc(email, url)
     if status == "Image not clear! Please try again!":
         return render_template('fail.html', msg=status)
+
     if status == "Data does not exist!":
         return render_template('fail.html', msg=status)
+
     if status == "Successfully Logged in!":
         app.logger.info("Login Success")
+        content = str(sendGetRequest(email))
+        # print(content)
+        content = ast.literal_eval(content)
+        return render_template('choices.html', content=content)
 
-        return render_template('selection.html', msg=status)
     else:
         app.logger.info("Login Fail")
         return render_template('fail.html', msg=status)
@@ -113,29 +132,33 @@ def login():
 
 @app.route('/register_submit', methods=['GET', 'POST'])
 def register_submit():
-    if request.method == 'POST':
-        content = request.form.getlist('food')
-        return str(content)
     global email, url
+
+    if request.method == 'POST':
+        content = str(request.form.getlist('food'))
+        sendPostRequest(email, content)
+        return redirect(url_for('.ordered'))
+
     if email == '' or url == '':
         return redirect(url_for('.register'))
+
     if email == None or url == None:
         return redirect(url_for('.register_submit'))
+
     status = rs(email, url)
 
     if status == "Registration Successful!":
         app.logger.info("Registration Success")
-
-        if request.method == 'POST':
-            content = str(request.form.getlist('food'))
-            sendPostReq(email, content)
-            return render_template('success.html', msg="Order has been placed and saved")
-
         return render_template('selection.html', mailid=email)
 
     else:
         app.logger.info("Registration fail")
         return render_template('fail.html', msg=status)
+
+
+@app.route('/orders')
+def ordered():
+    return render_template('success.html')
 
 
 @app.route('/favicon.ico')

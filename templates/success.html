@@ -29,34 +29,45 @@
     <title>Success</title>
   </head>
   <style>
+    body {
+      font-family: "Muli", sans-serif, -apple-system, BlinkMacSystemFont,
+        "Helvetica Neue", Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #4fdb59;
+      background-image: url("../static/images/cover.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 20px;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     h1 {
-      color: #88b04b;
+      color: #0b0000;
       font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
-      font-weight: 900;
+      font-weight: 700;
       font-size: 40px;
       margin: auto;
     }
-    .icon {
-      background-image: url("/static/checkmark.png");
-      background-repeat: no-repeat;
-      background-size: 250px;
-      height: 250px;
-      width: 250px;
-      margin: 20px;
-    }
     .card {
-      background: white;
+      background: #4d303000;
       padding: 60px;
       display: flex;
       flex-direction: column;
       margin: auto;
       align-items: center;
+      justify-content: center;
+      border: none;
     }
   </style>
   <body>
     <div class="card">
-      <div class="icon"></div>
-      <h1>{{ msg }}</h1>
+      <h1>Your Order has been placed!</h1>
+      <h2>Please Visit us Again :)</h2>
     </div>
   </body>
 </html>
