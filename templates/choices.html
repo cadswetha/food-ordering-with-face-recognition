@@ -31,18 +31,23 @@
     <title>Choices</title>
   </head>
   <body>
+    <!-- As a heading -->
+    <nav class="navbar">
+      <span class="navbar-brand marg mb-0 h1">VegaFast</span>
+    </nav>
     <div class="item-container">
-      <h4 class="title">Your saved order(s) is/are</h4>
+      <h4 class="title">Your saved order is</h4>
       <ul class="decorator">
         {% for item in content %}
         <li class="each-item">{{item}}</li>
         {% endfor %}
       </ul>
-      <a class="changebtn" href="{{url_for('.register_submit')}}"
-        >Change Order!</a
-      >
-
-      <a class="changebtn" href="{{url_for('.ordered')}}">Place Order!</a>
+      <div class="btn-container">
+        <a class="changebtn" href="{{url_for('.register_submit')}}"
+          >Change Order!</a
+        >
+        <a class="changebtn" href="{{url_for('.ordered')}}">Place Order!</a>
+      </div>
     </div>
   </body>
 </html>

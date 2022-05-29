@@ -29,9 +29,10 @@
     <title>Success</title>
   </head>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Calligraffitti&family=Roboto&family=Source+Sans+Pro:wght@400;700;900&family=Ubuntu:wght@400;700&display=swap");
+
     body {
-      font-family: "Muli", sans-serif, -apple-system, BlinkMacSystemFont,
-        "Helvetica Neue", Helvetica, sans-serif;
+      font-family: "Source Sans Pro", sans-serif;
       margin: 0;
       padding: 0;
       background-color: rgb(142, 235, 28);
@@ -42,32 +43,61 @@
       background-attachment: fixed;
       padding: 20px;
       overflow-x: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
     h1 {
-      color: #0b0000;
-      font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
-      font-weight: 700;
       font-size: 40px;
-      margin: auto;
+      margin: 15px auto;
     }
     .card {
       background: #4d303000;
       padding: 60px;
       display: flex;
       flex-direction: column;
-      margin: auto;
+      margin: 40px auto;
       align-items: center;
       justify-content: center;
       border: none;
     }
+
+    .navbar-brand {
+      margin: 0 auto;
+      font-family: "Calligraffitti", cursive;
+      color: #080808;
+      font-size: 40px;
+      font-weight: 500;
+      padding: 1rem;
+    }
+    a {
+      background: linear-gradient(
+        to right,
+        rgb(144, 255, 7),
+        rgb(128, 202, 36)
+      );
+      color: black;
+      border-radius: 1rem;
+      padding: 0.3rem 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 20px;
+      margin: 2rem;
+      text-decoration: none;
+      width: max-content;
+    }
+    a:hover {
+      color: #080808;
+    }
   </style>
   <body>
+    <!-- As a heading -->
+    <nav class="navbar">
+      <span class="navbar-brand mb-0 h1">VegaFast</span>
+    </nav>
     <div class="card">
-      <h1>Your Order has been placed!</h1>
+      <h1>
+        Thank you for choosing <span class="navbar-brand">VegaFast</span> your
+        order has been placed!
+      </h1>
       <h2>Do visit us again :)</h2>
+      <a href="/">Back to login page</a>
     </div>
   </body>
 </html>

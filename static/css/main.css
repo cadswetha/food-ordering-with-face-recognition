@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Calligraffitti&family=Roboto&family=Source+Sans+Pro:wght@400;700;900&family=Ubuntu:wght@400;700&display=swap');
+
 body{
     background-color: rgb(35, 34, 34);
     color: aliceblue;
@@ -95,7 +97,13 @@ body{
     font-weight: bold;
     margin: 0.3rem auto;
     margin-bottom: 0.5rem;
-    width: 170px;
+    width: 130px;
+}
+.btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2rem;
 }
 .each-item{
     padding-top: 0.3rem;
@@ -103,11 +111,21 @@ body{
 }
 .title{
     margin: 3rem auto;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 a{
     text-decoration: none;
 }
 a:hover{
     color: black;
+}
+.navbar-brand {
+    margin: 12px 0 0 40px;
+    font-family: 'Calligraffitti', cursive;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 500;
+}
+.marg{
+    margin: 20px auto;
 }

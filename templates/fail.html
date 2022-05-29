@@ -29,6 +29,7 @@
     <title>Error</title>
   </head>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Calligraffitti&family=Roboto&family=Source+Sans+Pro:wght@400;700;900&family=Ubuntu:wght@400;700&display=swap");
     body {
       font-family: "Muli", sans-serif, -apple-system, BlinkMacSystemFont,
         "Helvetica Neue", Helvetica, sans-serif;
@@ -42,9 +43,6 @@
       background-attachment: fixed;
       padding: 20px;
       overflow-x: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
     h1 {
       color: #0b0000;
@@ -68,11 +66,38 @@
       justify-content: center;
       border: none;
     }
+    .navbar-brand {
+      margin: 0 auto;
+      font-family: "Calligraffitti", cursive;
+      color: #080808;
+      font-size: 40px;
+      font-weight: 500;
+      padding: 1rem;
+    }
+    a {
+      background: linear-gradient(to right, #e45656, #e17f7f);
+      color: black;
+      border-radius: 2rem;
+      padding: 0.3rem 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 20px;
+      margin: 2rem;
+      text-decoration: none;
+      width: max-content;
+    }
+    a:hover {
+      color: #080808;
+    }
   </style>
   <body>
+    <!-- As a heading -->
+    <nav class="navbar">
+      <span class="navbar-brand mb-0 h1">VegaFast</span>
+    </nav>
     <div class="card">
       <img src="../static/images/delete-sign.png" alt="error" class="icon" />
       <h1>{{ msg }}</h1>
+      <a href="/">Back to login page</a>
     </div>
   </body>
 </html>

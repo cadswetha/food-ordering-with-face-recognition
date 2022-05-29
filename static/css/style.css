@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Calligraffitti&family=Roboto&family=Source+Sans+Pro:wght@400;700;900&family=Ubuntu:wght@400;700&display=swap');
+
+
 body {
     font-family: 'Muli', sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
     margin: 0;
@@ -125,4 +128,12 @@ input {
 
 .form-footer div a {
     color: #ffb37b;
+}
+
+.navbar-brand{
+    margin: 0 auto;
+    font-family: 'Calligraffitti', cursive;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 500;
 }
