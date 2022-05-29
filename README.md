@@ -4,9 +4,9 @@
 
 Food ordering and recommendation system using face recognition
 
-This is a web based facial login/sign up device that makes food ordering process easier. It also has the provision for registering face for new entries.
+This is a web based facial login/sign-up device that makes food ordering process easier and it makes use of Flask server. It also has the provision for registering face for new entries.
 
-It also recommends the most preferred cuisines based on the client's racial identity
+**It also recommends the most preferred cuisines based on the client's racial identity**
 
 ### Preview
 
