@@ -15,6 +15,7 @@ secret_key = str(os.urandom(24))
 
 app = Flask(__name__)
 
+# database credentials for connecting to the database
 app.config['MYSQL_USER'] = 'sql6495906'
 app.config['MYSQL_PASSWORD'] = 'ecT2HVKR8x'
 app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
@@ -47,6 +48,8 @@ email = None
 url = None
 
 
+# this is a funtion that is called when a post request is sent to the server when submitting the food choices
+
 def sendPostRequest(email, content):
     cur = mysql.connection.cursor()
     query = f'SELECT * FROM Preferences WHERE mailid = "{email}"'
@@ -63,6 +66,8 @@ def sendPostRequest(email, content):
     mysql.connection.commit()
 
 
+# this funtion is called when we need to get information from database - i.e saved orders in the database is fetched
+
 def sendGetRequest(email):
     cur = mysql.connection.cursor()
     query = f'SELECT fooditems FROM Preferences WHERE mailid = "{email}"'
@@ -70,6 +75,8 @@ def sendGetRequest(email):
     row = cur.fetchone()
     return row[0]
 
+
+# index page - login page
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -84,6 +91,8 @@ def index():
         form.url.data = url
     return render_template('index.html', form=form)
 
+
+# Registeration page
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -102,6 +111,7 @@ def register():
     return render_template('register.html', form=form)
 
 
+# after the login is made checking whether data exsits , if yes display the previously saved order
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     global email, url
@@ -121,14 +131,18 @@ def login():
 
     if status == "Successfully Logged in!":
         app.logger.info("Login Success")
+        # get the saved food choices
         content = str(sendGetRequest(email))
         # print(content)
+        # convert to list
         content = ast.literal_eval(content)
         return render_template('choices.html', content=content)
 
     else:
         app.logger.info("Login Fail")
         return render_template('fail.html', msg=status)
+
+# after registration is successful , displays all food choices and also recommends based on the person's race
 
 
 @app.route('/register_submit', methods=['GET', 'POST'])
@@ -150,7 +164,9 @@ def register_submit():
 
     if status == "Registration Successful!":
         app.logger.info("Registration Success")
+        # detecting race
         raceInfo = rd.detectRace(url)
+        # finding out prefered cuisines
         cuisines = rd.recommendCuisine(raceInfo)
         return render_template('selection.html', mailid=email, cuisines=cuisines)
 
@@ -158,6 +174,8 @@ def register_submit():
         app.logger.info("Registration fail")
         return render_template('fail.html', msg=status)
 
+
+# when order is successful display this page
 
 @app.route('/orders')
 def ordered():

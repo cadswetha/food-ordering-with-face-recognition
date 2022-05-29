@@ -36,7 +36,10 @@
     <nav class="navbar">
       <span class="navbar-brand mb-0 h1">VegaFast</span>
     </nav>
+
     <!-- (latino hispanic - italian)(white- italian , american) , indian, (asian - japanese,Chinese,thai) ,(middle eastern - lebanese ,arab) (black - soul food) -->
+
+    <!-- Display the recommendations received from the server -->
     <div class="recommendation-container">
       <h3 class="title">Our recommendations for you!</h3>
       <ul class="decorator">
@@ -46,6 +49,7 @@
       </ul>
     </div>
 
+    <!-- Displaying all the cuisines as cards with respective food choice -->
     <section class="ms-4">
       <header>
         <div class="title-block">
@@ -53,11 +57,13 @@
         </div>
       </header>
 
+      <!-- Form for posting all the input values to the database -->
       <form action="" method="post">
         <div class="container-float">
           <div class="row ms-2">
             <div class="col-lg-8">
               <div class="row">
+                <!-- cuisine 1 -->
                 <div class="col mb-3">
                   <div class="card" style="width: 15rem">
                     <img
@@ -93,7 +99,7 @@
                     </div>
                   </div>
                 </div>
-
+                <!-- cuisine 2 -->
                 <div class="col p-0 mb-3">
                   <div class="card" style="width: 15rem">
                     <img
@@ -129,7 +135,7 @@
                     </div>
                   </div>
                 </div>
-
+                <!-- cuisine 3 -->
                 <div class="col p-0 mb-3">
                   <div class="card" style="width: 15rem">
                     <img
@@ -168,6 +174,7 @@
               </div>
 
               <div class="row">
+                <!-- cuisine 4 -->
                 <div class="col mb-3">
                   <div class="card" style="width: 15rem">
                     <img
@@ -203,6 +210,8 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- cuisine 5 -->
                 <div class="col p-0 mb-3" style="margin-left: -17px">
                   <div class="card" style="width: 15rem">
                     <img
@@ -238,7 +247,7 @@
                     </div>
                   </div>
                 </div>
-
+                <!-- cuisine 6 -->
                 <div class="col p-0 mb-3" style="margin-left: -14px">
                   <div class="card" style="width: 15rem">
                     <img
@@ -276,6 +285,7 @@
                 </div>
 
                 <div class="row">
+                  <!-- cuisine 7 -->
                   <div class="col mb-3">
                     <div class="card" style="width: 15rem">
                       <img
@@ -312,6 +322,7 @@
                     </div>
                   </div>
 
+                  <!-- cuisine 8 -->
                   <div class="col p-0 mb-3">
                     <div class="card" style="width: 15rem">
                       <img
@@ -348,6 +359,7 @@
                     </div>
                   </div>
 
+                  <!-- cuisine 9 -->
                   <div class="col p-0 mb-3">
                     <div class="card" style="width: 15rem">
                       <img
@@ -387,6 +399,7 @@
               </div>
             </div>
 
+            <!-- a side bar that displays the selected food choices and contains a submit button for posting -->
             <div class="side-bar col-lg-4">
               <h2 class="title-block-side-bar">List of items ordered</h2>
               <div id="my-data" style="display: none">{{mailid}}</div>

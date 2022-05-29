@@ -35,6 +35,8 @@
     <nav class="navbar">
       <span class="navbar-brand marg mb-0 h1">VegaFast</span>
     </nav>
+
+    <!-- Saved Food items display -->
     <div class="item-container">
       <h4 class="title">Your saved order is</h4>
       <ul class="decorator">
@@ -42,6 +44,7 @@
         <li class="each-item">{{item}}</li>
         {% endfor %}
       </ul>
+
       <div class="btn-container">
         <a class="changebtn" href="{{url_for('.register_submit')}}"
           >Change Order!</a
