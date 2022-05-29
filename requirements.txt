@@ -7,6 +7,7 @@ ecdsa==0.17.0
 enum34==1.1.10
 face-recognition==1.4.0
 face-recognition-models==0.3.0
+gunicorn==20.1.0
 Flask==2.1.2
 Flask-MySQLdb==1.0.1
 Flask-WTF==1.0.1
