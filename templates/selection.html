@@ -36,7 +36,16 @@
     <nav class="navbar">
       <span class="navbar-brand mb-0 h1">VegaFast</span>
     </nav>
-    <!-- (latino hispanic - italian)(white- italian , american) , indian, (asian - japanese,Chinese,thai) ,(middle eastern - lebanese) (black - soul food) -->
+    <!-- (latino hispanic - italian)(white- italian , american) , indian, (asian - japanese,Chinese,thai) ,(middle eastern - lebanese ,arab) (black - soul food) -->
+    <div class="recommendation-container">
+      <h3 class="title">Our recommendations for you!</h3>
+      <ul class="decorator">
+        {% for item in cuisines %}
+        <li class="each-item">{{item}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
     <section class="ms-4">
       <header>
         <div class="title-block">

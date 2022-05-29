@@ -110,6 +110,7 @@ body{
     font-size: larger;
 }
 .title{
+    color: rgb(27, 150, 27);
     margin: 3rem auto;
     margin-bottom: 0.5rem;
 }
@@ -128,4 +129,7 @@ a:hover{
 }
 .marg{
     margin: 20px auto;
+}
+.recommendation-container{
+    margin-left: 60px;
 }

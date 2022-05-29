@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired
 import os
 from login import login_check as lc
 from register import register_on_submit as rs
+import racedetection as rd
 from flask_mysqldb import MySQL
 import ast
 
@@ -149,7 +150,9 @@ def register_submit():
 
     if status == "Registration Successful!":
         app.logger.info("Registration Success")
-        return render_template('selection.html', mailid=email)
+        raceInfo = rd.detectRace(url)
+        cuisines = rd.recommendCuisine(raceInfo)
+        return render_template('selection.html', mailid=email, cuisines=cuisines)
 
     else:
         app.logger.info("Registration fail")

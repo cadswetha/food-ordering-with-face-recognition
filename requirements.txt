@@ -25,3 +25,4 @@ Pillow==9.1.0
 pyasn1==0.4.8
 python-jose==3.3.0
 pytz==2022.1
+deepface==0.0.75
