@@ -16,10 +16,10 @@ secret_key = str(os.urandom(24))
 app = Flask(__name__)
 
 # database credentials for connecting to the database
-app.config['MYSQL_USER'] = 'sql6495906'
-app.config['MYSQL_PASSWORD'] = 'ecT2HVKR8x'
+app.config['MYSQL_USER'] = 'sql6497695'
+app.config['MYSQL_PASSWORD'] = 'Pr4hWFSUcF'
 app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
-app.config['MYSQL_DB'] = 'sql6495906'
+app.config['MYSQL_DB'] = 'sql6497695'
 # app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
